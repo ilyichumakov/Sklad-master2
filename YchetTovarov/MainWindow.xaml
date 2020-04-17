@@ -1,0 +1,107 @@
+﻿<Window x:Class="YchetTovarov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YchetTovarov"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="456" Width="814" Closing="Window_Closing">
+    <Grid Width="797">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#FFE4E4E4">
+            <Canvas>
+                <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199" >
+                    <StackPanel x:Name="TovarList" Background="White" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                    </StackPanel>
+                </ScrollViewer>
+                <Label Content="Товары" Margin="0" VerticalAlignment="Top" Width="199"/>
+                <Button Content="Добавить товар" Margin="0" VerticalAlignment="Bottom" Click="Button_Click" Canvas.Top="398" Width="199"/>
+
+            </Canvas>
+
+        </Grid>
+        <Grid Background="#FFE4E4E4" Grid.Column="2">
+            <Canvas>
+                <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199" >
+                    <StackPanel x:Name="SkladList" Background="White" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                    </StackPanel>
+                </ScrollViewer>
+                <Label Content="Товары в наличии" Margin="0" VerticalAlignment="Top" Width="199"/>
+                <Button Content="Добавить товар" Margin="0" VerticalAlignment="Bottom" Canvas.Top="398" Width="199" Click="Button_Click_1"/>
+
+            </Canvas>
+
+        </Grid>
+        <Grid Background="#FFE4E4E4" Grid.Column="1">
+            <Canvas>
+                <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199" >
+                    <StackPanel x:Name="PostavList" Background="White" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                    </StackPanel>
+                </ScrollViewer>
+                <Label Content="Поставщики" Margin="0" VerticalAlignment="Top" Width="199"/>
+                <Button Content="Добавить поставщика" Margin="0" VerticalAlignment="Bottom" Canvas.Top="398" Width="199" Click="Button_Click_2"/>
+
+            </Canvas>
+
+        </Grid>
+        <Grid Background="#FFE4E4E4" Grid.Column="3">
+            <Canvas>
+                <ScrollViewer MaxHeight="372" Height="350" Canvas.Top="26" Width="199" >
+                    <StackPanel x:Name="ZakazList" Background="White" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                        <local:UserControl1/>
+                    </StackPanel>
+                </ScrollViewer>
+                <Label Content="Заказы" Margin="0" VerticalAlignment="Top" Width="199"/>
+                <Button Content="Добавить заказ" Margin="0" VerticalAlignment="Bottom" Canvas.Top="398" Width="199" Click="Button_Click_3"/>
+                <Button Content="Показать отчет" Margin="0" VerticalAlignment="Bottom" Canvas.Top="376" Width="199" Click="Button_Click_4"/>
+
+            </Canvas>
+
+        </Grid>
+
+    </Grid>
+</Window>
