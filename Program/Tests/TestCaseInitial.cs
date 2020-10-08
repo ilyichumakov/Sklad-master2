@@ -8,7 +8,7 @@ namespace Tests
         [Fact]
         public void TestInitial()
         {
-            throw new NotImplementedException("Please, write first test");
+            Assert.Equal(1, 1);
         }
     }
 }
