@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "YchetTovarov\Storage.csproj", "{4DAD3B41-A8D2-43E2-A6D8-CE59B9C5779C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{55992D2C-2BFA-4F49-969B-17E372996663}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DAD3B41-A8D2-43E2-A6D8-CE59B9C5779C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAD3B41-A8D2-43E2-A6D8-CE59B9C5779C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAD3B41-A8D2-43E2-A6D8-CE59B9C5779C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAD3B41-A8D2-43E2-A6D8-CE59B9C5779C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55992D2C-2BFA-4F49-969B-17E372996663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55992D2C-2BFA-4F49-969B-17E372996663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55992D2C-2BFA-4F49-969B-17E372996663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55992D2C-2BFA-4F49-969B-17E372996663}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {286B38FA-8450-4B9A-8607-0FC1633DEDED}
+	EndGlobalSection
+EndGlobal
