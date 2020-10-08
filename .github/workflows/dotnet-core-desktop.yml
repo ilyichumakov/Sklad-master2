@@ -79,11 +79,11 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Restore
-      run: dotnet restore
+      run: dotnet restore Program\Tests
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore Program\Tests
     - name: Test
-      run: dotnet test --no-build
+      run: dotnet test --no-build Program\Tests
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
