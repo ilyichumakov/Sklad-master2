@@ -7,17 +7,27 @@
              mc:Ignorable="d" Width="170.333">
     <Grid VerticalAlignment="Top">
         <StackPanel Orientation="Vertical" Margin="0" VerticalAlignment="Top">
-            <Grid Background="#FFEEEEEE" Height="29">
-                <Label x:Name="NameLabel" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+            <Grid Height="29">
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                </Grid.Background>
+                <Label x:Name="NameLabel" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" FontStyle="Italic"/>
                 <Border x:Name="Edit" BorderThickness="1" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center" Height="20" Width="20">
-                    <Image Source="Resources/202-2022557_edit-comments-edit-icon-png.png"/>
+                    <Image Source="Resources/202-2022557_edit-comments-edit-icon-png.png" Margin="-30,0,30,0"/>
                 </Border>
                 <Border x:Name="Trash" BorderThickness="1" HorizontalAlignment="Right" Margin="0,4,25,5" VerticalAlignment="Center" Height="20" Width="20">
-                    <Image Source="Resources/trash1600.png"/>
+                    <Image Source="Resources/trash1600.png" Margin="19,-1,-22,-1"/>
                 </Border>
 
             </Grid>
-            <TextBlock x:Name="DescLabel" TextWrapping="Wrap" />
+            <TextBlock x:Name="DescLabel" TextWrapping="Wrap" >
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                </TextBlock.Foreground>
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </TextBlock.Background>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

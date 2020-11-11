@@ -7,28 +7,31 @@
              mc:Ignorable="d" Width="170.333">
     <Grid VerticalAlignment="Top">
         <StackPanel Orientation="Vertical" Margin="0" VerticalAlignment="Top">
-            <Grid Background="#FFEEEEEE" Height="29">
-                <Label x:Name="NameLabel" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+            <Grid Height="29">
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                </Grid.Background>
+                <Label x:Name="NameLabel" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" FontStyle="Italic"/>
                 <Border x:Name="Edit" BorderThickness="1" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center" Height="20" Width="20">
-                    <Image Source="Resources/202-2022557_edit-comments-edit-icon-png.png"/>
+                    <Image Source="Resources/202-2022557_edit-comments-edit-icon-png.png" Margin="-26,0,26,0"/>
                 </Border>
                 <Border x:Name="Trash" BorderThickness="1" HorizontalAlignment="Right" Margin="0,4,25,5" VerticalAlignment="Center" Height="20" Width="20">
-                    <Image Source="Resources/trash1600.png"/>
+                    <Image Source="Resources/trash1600.png" Margin="21,0,-22,-1"/>
                 </Border>
 
             </Grid>
-      <StackPanel x:Name="PolPanel" Margin="0" Orientation="Horizontal">
-        <Label x:Name="Polochka_Copy" Content="Полочка:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
-        <Label x:Name="Polochka" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
-      </StackPanel>
-      <StackPanel Margin="0" Orientation="Horizontal">
-        <Label x:Name="Polochka_Copy1" Content="Количество:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
-        <Label x:Name="Kolichesvo" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
-      </StackPanel>
-      <StackPanel Margin="0" Orientation="Horizontal">
-        <Label Content="Поставщик:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
-        <Label x:Name="post" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
-      </StackPanel>
-    </StackPanel>
+            <StackPanel x:Name="PolPanel" Margin="0" Orientation="Horizontal">
+                <Label x:Name="Polochka_Copy" Content="Полочка:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+                <Label x:Name="Polochka" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Margin="0" Orientation="Horizontal">
+                <Label x:Name="Polochka_Copy1" Content="Количество:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                <Label x:Name="Kolichesvo" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Margin="0" Orientation="Horizontal">
+                <Label Content="Поставщик:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
+                <Label x:Name="post" Content="Label" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
