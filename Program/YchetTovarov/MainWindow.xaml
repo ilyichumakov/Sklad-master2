@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YchetTovarov"
         mc:Ignorable="d"
-        Title="Система учета" Height="456" Width="814" Closing="Window_Closing">
+        Title="Система учета" Height="566" Width="814" Closing="Window_Closing">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.AppWorkspaceColorKey}}"/>
+    </Window.Background>
     <Grid Width="797">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -13,10 +16,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Background="#ADD8E6">
+        <Grid>
             <Canvas>
                 <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199">
-                    <StackPanel x:Name="TovarList" Background="LightBlue" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                    <StackPanel x:Name="TovarList" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
                         <local:UserControl1/>
                         <local:UserControl1/>
                         <local:UserControl1/>
@@ -29,16 +32,20 @@
                         <local:UserControl1/>
                     </StackPanel>
                 </ScrollViewer>
-                <Label Content="Товары" Margin="0" VerticalAlignment="Top" Width="199"/>
-                <Button Content="Добавить товар" Margin="0" VerticalAlignment="Bottom" Click="Button_Click" Canvas.Top="398" Width="199"/>
+                <Label Content="Товары:" Margin="0" VerticalAlignment="Top" Width="203" FontWeight="Bold" FontStyle="Italic" Foreground="White" Canvas.Left="-4">
+                    <Label.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Label.Background>
+                </Label>
+                <Button Content="Добавить товар" Margin="0" VerticalAlignment="Bottom" Click="Button_Click" Canvas.Top="416" Width="199" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" BorderBrush="Black" Height="42" Canvas.Left="1" Foreground="White"/>
 
             </Canvas>
 
         </Grid>
-        <Grid Background="#ADD8E6" Grid.Column="2">
+        <Grid Grid.Column="2">
             <Canvas>
                 <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199" >
-                    <StackPanel x:Name="SkladList" Background="LightBlue" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                    <StackPanel x:Name="SkladList" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
                         <local:UserControl1/>
                         <local:UserControl1/>
                         <local:UserControl1/>
@@ -51,16 +58,27 @@
                         <local:UserControl1/>
                     </StackPanel>
                 </ScrollViewer>
-                <Label Content="Товары в наличии" Margin="0" VerticalAlignment="Top" Width="199"/>
-                <Button Content="Добавить товар" Margin="0" VerticalAlignment="Bottom" Canvas.Top="398" Width="199" Click="Button_Click_1"/>
+                <Label Content="Товары в наличии:" Margin="0" VerticalAlignment="Top" Width="199" FontStyle="Italic" FontWeight="Bold" Foreground="White">
+                    <Label.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Label.Background>
+                </Label>
+                <Button Content="Добавить товар" Margin="0" VerticalAlignment="Bottom" Canvas.Top="416" Width="199" Click="Button_Click_1" FontWeight="Bold" Height="42" Foreground="White">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.Background>
+                </Button>
 
             </Canvas>
 
         </Grid>
-        <Grid Background="#ADD8E6" Grid.Column="1">
+        <Grid Grid.Column="1">
             <Canvas>
                 <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199" >
-                    <StackPanel x:Name="PostavList" Background="LightBlue" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                    <StackPanel x:Name="PostavList" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
                         <local:UserControl1/>
                         <local:UserControl1/>
                         <local:UserControl1/>
@@ -73,16 +91,30 @@
                         <local:UserControl1/>
                     </StackPanel>
                 </ScrollViewer>
-                <Label Content="Поставщики" Margin="0" VerticalAlignment="Top" Width="199"/>
-                <Button Content="Добавить поставщика" Margin="0" VerticalAlignment="Bottom" Canvas.Top="398" Width="199" Click="Button_Click_2"/>
+                <Label Content="Поставщики:" Margin="0" VerticalAlignment="Top" Width="199" FontStyle="Italic" FontWeight="Bold" Foreground="White">
+                    <Label.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Label.Background>
+                </Label>
+                <Button Content="Добавить поставщика" Margin="0" VerticalAlignment="Bottom" Canvas.Top="416" Width="199" Click="Button_Click_2" FontWeight="Bold" Height="42">
+                    <Button.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.Background>
+                    <Button.Foreground>
+                        <SolidColorBrush Color="White"/>
+                    </Button.Foreground>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.BorderBrush>
+                </Button>
 
             </Canvas>
 
         </Grid>
-        <Grid Background="#ADD8E6" Grid.Column="3">
+        <Grid Grid.Column="3">
             <Canvas>
-                <ScrollViewer MaxHeight="372" Height="350" Canvas.Top="26" Width="199" >
-                    <StackPanel x:Name="ZakazList" Background="LightBlue" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                <ScrollViewer MaxHeight="372" Height="372" Canvas.Top="26" Width="199" >
+                    <StackPanel x:Name="ZakazList" CanVerticallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
                         <local:UserControl1/>
                         <local:UserControl1/>
                         <local:UserControl1/>
@@ -90,14 +122,32 @@
                         <local:UserControl1/>
                         <local:UserControl1/>
                         <local:UserControl1/>
-                        <local:UserControl1/>
+                        <local:UserControl1 RenderTransformOrigin="0.5,0.5"/>
                         <local:UserControl1/>
                         <local:UserControl1/>
                     </StackPanel>
                 </ScrollViewer>
-                <Label Content="Заказы" Margin="0" VerticalAlignment="Top" Width="199"/>
-                <Button Content="Добавить заказ" Margin="0" VerticalAlignment="Bottom" Canvas.Top="398" Width="199" Click="Button_Click_3"/>
-                <Button Content="Показать отчет" Margin="0" VerticalAlignment="Bottom" Canvas.Top="376" Width="199" Click="Button_Click_4"/>
+                <Label Content="Заказы:" Margin="0" VerticalAlignment="Top" Width="204" FontWeight="Bold" FontStyle="Italic" Foreground="White">
+                    <Label.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Label.Background>
+                </Label>
+                <Button Content="Добавить заказ" Margin="0" VerticalAlignment="Bottom" Canvas.Top="416" Width="199" Click="Button_Click_3" FontWeight="Bold" Height="42" Foreground="White">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Показать отчет" Margin="0" VerticalAlignment="Bottom" Canvas.Top="474" Width="199" Click="Button_Click_4" FontWeight="Bold" Height="30" Foreground="White">
+                    <Button.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}"/>
+                    </Button.BorderBrush>
+                </Button>
 
             </Canvas>
 
