@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
 
@@ -231,12 +222,23 @@ namespace YchetTovarov
             addForm = new AddForm();
             addForm.Show();
             addForm.Sumbit.Click += Sumbit_Click;
-
         }
 
         private void Sumbit_Click(object sender, RoutedEventArgs e)
         {
-            Product product = new Product() { Name = addForm.nametext.Text, Desc = addForm.desctext.Text };
+            string name = addForm.nametext.Text;
+            string desc = addForm.desctext.Text;
+            if (name.Length == 0 || desc.Length == 0)
+            {
+                MessageBox.Show(
+                    "Нужно указать товар и его описание",
+                    "Ошибка валидации",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                );
+                return;
+            }
+            Product product = new Product() { Name = name, Desc = desc };
             config.list.AllProducts.Add(product);
             config.Save();
             Refresh();
@@ -273,7 +275,36 @@ namespace YchetTovarov
 
         private void Sumbit_Click1(object sender, RoutedEventArgs e)
         {
-            StroredProduct product = new StroredProduct() { polka = Convert.ToInt32(addForm2.poltext.Text), count = Convert.ToInt32(addForm2.koltext.Text),
+            if (addForm2.poltext.Text.Length == 0 || addForm2.koltext.Text.Length == 0 || addForm2.PostavshickList.SelectedItem == null || addForm2.TovarList.SelectedItem == null)
+            {
+                MessageBox.Show(
+                    "Нужно указать полку, товар, его количество и поставщика",
+                    "Ошибка валидации",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                );
+                return;
+            }
+
+            if (!Int32.TryParse(addForm2.poltext.Text, out int shelve))
+            {
+                MessageBox.Show("Полка должна быть характеризована номером!", "Ошибка валидации", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!Int32.TryParse(addForm2.koltext.Text, out int amount))
+            {
+                MessageBox.Show("Количество должно быть характеризовано числом!", "Ошибка валидации", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if(amount < 1)
+            {
+                MessageBox.Show("Вы не можете добавить количество товара меньше 1!", "Ошибка валидации", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            StroredProduct product = new StroredProduct() { polka = Convert.ToInt32(shelve), count = Convert.ToInt32(amount),
                 product = config.list.AllProducts.Where(x => x.Name == ((ListBoxItem)addForm2.TovarList.SelectedItem).Content.ToString()).First(),
                 Postavshick = config.list.AllPostavshicks.Where(x => x.name == ((ListBoxItem)addForm2.PostavshickList.SelectedItem).Content.ToString()).First()
 
@@ -294,12 +325,44 @@ namespace YchetTovarov
 
         private void Sumbit_Click2(object sender, RoutedEventArgs e)
         {
+            string phone = addForm3.TelL.Text;
+            string address = addForm3.adressT.Text;
+            string name = addForm3.nameL.Text;
+
+            if (phone.Length == 0 || address.Length == 0 || name.Length == 0)
+            {
+                MessageBox.Show(
+                    "Нужно указать телефон, адрес и наименование поставщика",
+                    "Ошибка валидации",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                );
+                return;
+            }
+
+            if (phone[0] == '+')
+            {
+                phone = phone.Substring(1);
+            }
+            phone = Regex.Replace(phone, @"[-\(\) ]+", "");
+
+            Regex phone_mask = new Regex(@"^[78][89][0-9]{9}$");
+            if(!phone_mask.IsMatch(phone))
+            {
+                MessageBox.Show(
+                    "Укажите валидный телефон, состоящий из 11 цифр. Можно также использовать пробел, скобки, дефис", 
+                    "Ошибка валидации",
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Warning
+                );
+                return;
+            }            
+
             Postavshick postavshick = new Postavshick()
             {
-                adress = addForm3.adressT.Text.ToString(),
-                name = addForm3.nameL.Text.ToString(),
-                tel = addForm3.TelL.Text.ToString()
-
+                adress = address,
+                name = name,
+                tel = phone
             };
             config.list.AllPostavshicks.Add(postavshick);
             config.Save();
@@ -331,8 +394,25 @@ namespace YchetTovarov
 
         private void Sumbit_Click3(object sender, RoutedEventArgs e)
         {
+            if (addForm4.koltext.Text.Length == 0 || addForm4.TovarList.SelectedItem == null || addForm4.PostavshickList.SelectedItem == null)
+            {
+                MessageBox.Show(
+                    "Нужно указать товар, его количество и поставщика",
+                    "Ошибка валидации",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                );
+                return;
+            }
+
+            if (!Int32.TryParse(addForm4.koltext.Text, out int count))
+            {
+                MessageBox.Show("Количество должно быть характеризовано номером!", "Ошибка валидации", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             Zakaz zakaz = new Zakaz() {
-                Count = Convert.ToInt32(addForm4.koltext.Text),
+                Count = count,
                 stroredProduct = config.list.AllProducts.Where(x => x.Name == ((ListBoxItem)addForm4.TovarList.SelectedItem).Content.ToString()).First(),
                 postavshick = config.list.AllPostavshicks.Where(x => x.name == ((ListBoxItem)addForm4.PostavshickList.SelectedItem).Content.ToString()).First()
          };
